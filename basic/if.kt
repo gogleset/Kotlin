@@ -3,6 +3,7 @@ fun main(args: Array<String>) {
     var a = 5
     verify10Or8(a)
     verifyBetween10And8(a)
+    
     var c = if (a == 10) {
         // 마지막으로 작성한 코드의 데이터 값이 return
         a + 5

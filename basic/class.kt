@@ -15,7 +15,8 @@ fun main(args: Array<String>) {
 
     var person4 = Person2("Charlies", 19, Gender.FEMALE, "취미는 없습니다");
     var person5 = Person3("Charliesqa", 21, Gender.FEMALE, "취미는 없습니다");
-    person5.sayBye()
+    // null - safety
+    
 }
 
 enum class Gender {
