@@ -39,7 +39,7 @@ fun RecipeScreen(modifier: Modifier) {
             }
 
             viewState.error != null -> {
-                Text(text = "ERROR OCCURED")
+                Text(text = "ERROR OCCURED ${viewState.error}")
             }
 
             else -> {
