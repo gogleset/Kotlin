@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -50,6 +51,7 @@ android {
 }
 
 dependencies {
+    val navVersion = "2.7.4"
 //    compose viewmodel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 //    network calls
@@ -58,7 +60,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 // image loading
     implementation("io.coil-kt:coil-compose:2.4.0")
-
+    // Jetpack Compose integration
+    implementation("androidx.navigation:navigation-compose:$navVersion")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
