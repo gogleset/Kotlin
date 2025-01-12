@@ -59,22 +59,24 @@ fun LocationScreen(modifier: Modifier = Modifier, context: Context, viewModel: L
         if (location != null) {
             Text(text = "위도: ${location.longitude}")
             Text(text = "경도: ${location.latitude}")
+        } else {
+            Button(onClick = {
+                if (locationUtil.hasLocationPermission()) {
+                    locationUtil.requestLocationUpdates(viewModel)
+                } else {
+                    requestPermissionLauncher.launch(
+                        arrayOf(
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        )
+                    )
+                }
+            }) {
+                Text(text = "Get Location!")
+            }
         }
 
-        Button(onClick = {
-            if (locationUtil.hasLocationPermission()) {
-                locationUtil.requestLocationUpdates(viewModel)
-            } else {
-                requestPermissionLauncher.launch(
-                    arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    )
-                )
-            }
-        }) {
-            Text(text = "Get Location!")
-        }
+
     }
 }
 
